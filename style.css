@@ -1,0 +1,585 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  position: relative;
+  display: flex;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.641);
+}
+
+img {
+  cursor: pointer;
+}
+
+/* LOGOS */
+.three_stripes {
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.main_logo {
+  width: 100px;
+  height: 40px;
+  margin: 0.3em;
+  cursor: pointer;
+}
+
+.sell_logo {
+  width: 20%;
+  filter: grayscale(100%);
+  cursor: pointer;
+}
+
+.logo_filter {
+  width: 30px;
+}
+/*LOGOS END */
+
+/* NAVBAR */
+.user_nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  font-size: 13px;
+}
+
+.compromisos,
+.mi_cuenta {
+  padding: 7px;
+  text-decoration: none;
+  color: rgb(64, 64, 64);
+  font-weight: bold;
+}
+
+.mi_cuenta {
+  text-align: center;
+}
+/* NAVBAR END */
+
+/* INPUT & SELECT & FILTER*/
+
+.section_filter {
+  display: flex;
+  font-size: 10px;
+  padding: 10px;
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.721);
+}
+
+h2,
+.title_filter {
+  align-self: center;
+}
+
+.logo_filter {
+  padding: 6px;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+select {
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+  width: 30%;
+}
+
+.div_full_size {
+  display: none;
+}
+
+.search {
+  width: 19%;
+  margin-left: 10px;
+  border: 1px solid rgb(137, 137, 137);
+  border-radius: 5px;
+}
+
+.search::-webkit-input-placeholder {
+  text-align: center;
+}
+
+.reset_button_filter {
+  margin-left: 10px;
+  margin-right: 2px;
+}
+/* INPUT & SELECT & FILTER END*/
+
+/* GALLERY FOR PRODUCTS (ARTICLE) */
+article {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+}
+
+.div_product {
+  text-align: center;
+}
+
+.div_product:hover {
+  transform: scale(1.07);
+  transition-delay: 150ms;
+}
+
+.img_product {
+  width: 90%;
+  padding: 10px;
+}
+
+.img_title {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.img_price {
+  font-size: 25px;
+}
+
+.img_stars {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.img_seller {
+  font-size: 12px;
+  font-weight: 500;
+}
+/* GALLERY FOR PRODUCTS (ARTICLE) END*/
+
+/* FOOTER */
+.footer_div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  top: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer_title {
+  font-size: 12px;
+  margin-bottom: 10px;
+  color: rgb(197, 140, 35);
+}
+
+.div_rrss {
+  width: 80%;
+  text-align: center;
+}
+
+.github_logo {
+  width: 40%;
+}
+
+.linkedin_logo {
+  width: 10%;
+  margin-right: 5px;
+  margin-bottom: 9px;
+}
+
+.netlify_logo {
+  width: 30%;
+  margin-right: 15px;
+  filter: grayscale(100%);
+}
+/* FOOTER END */
+
+@media screen and (min-width: 1391px) and (max-width: 2390px) {
+  article {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    margin: 30px 20px 0 280px;
+  }
+
+  .three_stripes {
+    display: none;
+  }
+
+  .main_logo {
+    width: 215px;
+    height: 80px;
+    margin: 0.3em;
+    cursor: pointer;
+  }
+
+  .sell_logo {
+    width: 60px;
+    margin: auto;
+    margin-right: 30px;
+  }
+
+  .mi_cuenta {
+    margin-left: auto;
+    margin-right: 30px;
+  }
+
+  .search {
+    margin-left: 10px;
+  }
+
+  .section_filter {
+    display: none;
+    border-bottom: none;
+  }
+
+  .section_filter_fullsize {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    top: 120px;
+    left: 15px;
+    padding: 15px 15px;
+    border-top: 2px solid rgba(0, 0, 0, 0.183);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.183);
+  }
+
+  .select_mobile {
+    display: none;
+  }
+
+  .div_full_size {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search {
+    width: 50%;
+    height: 40px;
+    margin: 100px 60px 20px;
+  }
+
+  .logo_filter {
+    margin: 0;
+    width: 40px;
+    align-self: center;
+  }
+
+  .reset_button_filter {
+    margin: 0 70px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .img_product {
+    width: 70%;
+    padding: 10px;
+  }
+
+  .footer_div {
+    top: 150px;
+  }
+
+  .div_rrss {
+    width: 20%;
+    text-align: center;
+  }
+}
+
+/* A PARTIR DE AQUÍ HACIA ARRIBA CAMBIA A WEB CON FILTROS A LA IZQUIERDA */
+@media screen and (min-width: 1221px) and (max-width: 1390px) {
+  article {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    margin: 30px 20px 0 280px;
+  }
+
+  .three_stripes {
+    display: none;
+  }
+
+  .main_logo {
+    width: 215px;
+    height: 80px;
+    margin: 0.3em;
+    cursor: pointer;
+  }
+
+  .sell_logo {
+    width: 60px;
+    margin: auto;
+    margin-right: 30px;
+  }
+
+  .mi_cuenta {
+    margin-left: auto;
+    margin-right: 30px;
+  }
+
+  .logo_filter {
+    margin: 0 0 10px;
+    width: 40px;
+    align-self: center;
+  }
+
+  .search {
+    width: 40%;
+    height: 40px;
+    margin: 20px 65px;
+  }
+
+  .section_filter {
+    display: none;
+    border-bottom: none;
+  }
+
+  .section_filter_fullsize {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    top: 120px;
+    left: 15px;
+    padding: 15px 15px;
+    border-top: 2px solid rgba(0, 0, 0, 0.183);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.183);
+  }
+
+  .select_mobile {
+    display: none;
+  }
+
+  .div_full_size {
+    width: 100%;
+    min-height: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .checkbox_product {
+    margin: 15px;
+  }
+
+  .span_name_product,
+  .span_amount_product {
+    font-size: 12px;
+  }
+
+  .reset_button_filter {
+    margin: 0 70px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .footer_div {
+    top: 100px;
+  }
+
+  .div_rrss {
+    width: 20%;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 1001px) and (max-width: 1220px) {
+  .three_stripes {
+    display: none;
+  }
+
+  .main_logo {
+    width: 215px;
+    height: 80px;
+    margin: 0.3em;
+    cursor: pointer;
+  }
+
+  .sell_logo {
+    width: 60px;
+    margin: auto;
+    margin-right: 30px;
+  }
+
+  .mi_cuenta {
+    margin-left: auto;
+    margin-right: 30px;
+  }
+
+  .section_filter {
+    font-size: 15px;
+  }
+
+  article {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  .div_product {
+    text-align: center;
+  }
+
+  .img_product {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .img_title {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .img_price {
+    font-size: 25px;
+  }
+
+  .img_stars {
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  .img_seller {
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .div_full_size {
+    display: none;
+  }
+
+  .footer_div {
+    top: 60px;
+  }
+
+  .div_rrss {
+    width: 30%;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 701px) and (max-width: 1000px) {
+  .three_stripes {
+    display: none;
+  }
+
+  .main_logo {
+    width: 150px;
+    height: 60px;
+    margin: 0.3em;
+    cursor: pointer;
+  }
+
+  .sell_logo {
+    width: 50px;
+    margin: auto;
+    margin-right: 30px;
+  }
+
+  .mi_cuenta {
+    margin-left: auto;
+    margin-right: 30px;
+  }
+
+  .section_filter {
+    font-size: 16px;
+  }
+
+  .div_full_size {
+    display: none;
+  }
+
+  .div_rrss {
+    width: 50%;
+    text-align: center;
+  }
+
+  article {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  .div_product {
+    text-align: center;
+  }
+
+  .img_product {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .img_title {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .img_price {
+    font-size: 25px;
+  }
+
+  .img_stars {
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  .img_seller {
+    font-size: 12px;
+    font-weight: 500;
+  }
+}
+
+@media screen and (min-width: 501px) and (max-width: 700px) {
+  .sell_logo {
+    width: 50px;
+    margin: auto;
+    margin-right: 20px;
+  }
+
+  .mi_cuenta {
+    margin-left: auto;
+    margin-right: 30px;
+  }
+
+  .section_filter {
+    font-size: 15px;
+  }
+
+  .div_full_size {
+    display: none;
+  }
+
+  .div_rrss {
+    width: 60%;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 391px) and (max-width: 500px) {
+  .sell_logo {
+    width: 50px;
+    margin: auto;
+    margin-right: 10px;
+  }
+
+  .div_full_size {
+    display: none;
+  }
+}
