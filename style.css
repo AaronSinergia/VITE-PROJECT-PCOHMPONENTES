@@ -212,102 +212,7 @@ article {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
-    margin: 30px 20px 0 280px;
-  }
-
-  .three_stripes {
-    display: none;
-  }
-
-  .main_logo {
-    width: 215px;
-    height: 80px;
-    margin: 0.3em;
-    cursor: pointer;
-  }
-
-  .sell_logo {
-    width: 60px;
-    margin: auto;
-    margin-right: 30px;
-  }
-
-  .mi_cuenta {
-    margin-left: auto;
-    margin-right: 30px;
-  }
-
-  .search {
-    margin-left: 10px;
-  }
-
-  .section_filter {
-    display: none;
-    border-bottom: none;
-  }
-
-  .section_filter_fullsize {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    width: 20%;
-    top: 120px;
-    left: 15px;
-    padding: 15px 15px;
-    border-top: 2px solid rgba(0, 0, 0, 0.183);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.183);
-  }
-
-  .select_mobile {
-    display: none;
-  }
-
-  .div_full_size {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .search {
-    width: 50%;
-    height: 40px;
-    margin: 100px 60px 20px;
-  }
-
-  .logo_filter {
-    margin: 0;
-    width: 40px;
-    align-self: center;
-  }
-
-  .reset_button_filter {
-    margin: 0 70px;
-    padding: 10px;
-    border-radius: 10px;
-  }
-
-  .img_product {
-    width: 70%;
-    padding: 10px;
-  }
-
-  .footer_div {
-    top: 150px;
-  }
-
-  .div_rrss {
-    width: 20%;
-    text-align: center;
-  }
-}
-
-/* A PARTIR DE AQUÍ HACIA ARRIBA CAMBIA A WEB CON FILTROS A LA IZQUIERDA */
-@media screen and (min-width: 1221px) and (max-width: 1390px) {
-  article {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    margin: 30px 20px 0 280px;
+    margin: 30px 40px 0 290px;
   }
 
   .three_stripes {
@@ -339,7 +244,7 @@ article {
   }
 
   .search {
-    width: 40%;
+    width: 100px;
     height: 40px;
     margin: 20px 65px;
   }
@@ -353,7 +258,7 @@ article {
     position: absolute;
     display: flex;
     flex-direction: column;
-    width: 20%;
+    width: 260px;
     top: 120px;
     left: 15px;
     padding: 15px 15px;
@@ -379,17 +284,117 @@ article {
 
   .span_name_product,
   .span_amount_product {
+    margin-left: 5px;
     font-size: 12px;
   }
 
   .reset_button_filter {
-    margin: 0 70px;
-    padding: 10px;
+    margin: 0 60px;
+    padding: 12px;
     border-radius: 10px;
   }
 
   .footer_div {
-    top: 100px;
+    top: 60px;
+  }
+
+  .div_rrss {
+    width: 15%;
+    text-align: center;
+  }
+}
+
+/* A PARTIR DE AQUÍ HACIA ARRIBA CAMBIA A WEB CON FILTROS A LA IZQUIERDA */
+@media screen and (min-width: 1221px) and (max-width: 1390px) {
+  article {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    margin: 40px 20px 0 280px;
+  }
+
+  .three_stripes {
+    display: none;
+  }
+
+  .main_logo {
+    width: 215px;
+    height: 80px;
+    margin: 0.3em;
+    cursor: pointer;
+  }
+
+  .sell_logo {
+    width: 60px;
+    margin: auto;
+    margin-right: 30px;
+  }
+
+  .mi_cuenta {
+    margin-left: auto;
+    margin-right: 30px;
+  }
+
+  .logo_filter {
+    margin: 0 0 10px;
+    width: 40px;
+    align-self: center;
+  }
+
+  .search {
+    width: 100px;
+    height: 40px;
+    margin: 20px 65px;
+  }
+
+  .section_filter {
+    display: none;
+    border-bottom: none;
+  }
+
+  .section_filter_fullsize {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    top: 120px;
+    left: 15px;
+    padding: 15px 15px;
+    border-top: 2px solid rgba(0, 0, 0, 0.183);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.183);
+  }
+
+  .select_mobile {
+    display: none;
+  }
+
+  .div_full_size {
+    width: 100%;
+    min-height: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .checkbox_product {
+    margin: 15px;
+  }
+
+  .span_name_product,
+  .span_amount_product {
+    margin-left: 5px;
+    font-size: 12px;
+  }
+
+  .reset_button_filter {
+    margin: 0 60px;
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .footer_div {
+    top: 140px;
   }
 
   .div_rrss {

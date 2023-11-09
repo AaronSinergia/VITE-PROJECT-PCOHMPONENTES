@@ -150,12 +150,18 @@ const section = () => {
   const inputSearch = document.createElement('input');
   const resetButtonFilters = document.createElement('button');
 
+  const firstOption = document.createElement('option');
+  firstOption.innerHTML = 'MARCAS';
+  firstOption.disabled = true;
+  firstOption.selected = true;
+  selectSearchMobile.appendChild(firstOption);
+
   // LOOP FOR SELECT PRODUCTS IN MOBILE
   let oneNameForLabelOption = new Set();
 
   products.forEach((product) => {
-    if (!oneNameForLabelOption.has(product.name)) {
-      oneNameForLabelOption.add(product.name);
+    if (!oneNameForLabelOption.has(product.seller)) {
+      oneNameForLabelOption.add(product.seller);
       const selectOptions = document.createElement('option');
       const divCheckBox = document.createElement('div');
       const input = document.createElement('input');
@@ -163,12 +169,13 @@ const section = () => {
       const spanAmountProduct = document.createElement('span');
 
       const cantidadElementos = products.filter(
-        (item) => item.name === product.name
+        (item) => item.seller === product.seller
       ).length;
+
       spanAmountProduct.innerHTML = `(${cantidadElementos})`;
 
-      selectOptions.innerHTML = product.name;
-      spanNameProduct.innerHTML = product.name;
+      selectOptions.innerHTML = product.seller;
+      spanNameProduct.innerHTML = product.seller;
 
       input.type = 'checkbox';
 
@@ -183,6 +190,24 @@ const section = () => {
       divSearchFullSize.appendChild(divCheckBox);
     }
   });
+
+  /////////////SEGUIR AQUI!!!!\\\\\\\\\
+  // selectSearchMobile.addEventListener('click', (ev) => {
+  //   if (ev.target.value === 'MARCAS') {
+  //     return;
+  //   } else {
+  //     const sellerSelected = ev.target.value;
+  //     products.forEach((product) => {
+  //       if (product.seller === sellerSelected) {
+  //         const img = document.createElement('img');
+  //         img.src = product.image;
+  //         console.log(img);
+  //       }
+  //     });
+
+  //     console.log(ev.target.value);
+  //   }
+  // });
 
   sectionFilter.className = 'section_filter section_filter_fullsize';
   h2.className = 'title_filter';
