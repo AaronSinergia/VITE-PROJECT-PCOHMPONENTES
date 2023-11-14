@@ -1,11 +1,8 @@
 import { products } from './productsArray';
 
-// export let initialArticleStatus;
-
 export const article = () => {
   const divApp = document.querySelector('#app');
   const article = document.createElement('article');
-  // initialArticleStatus = article.innerHTML;
   article.className = 'products_article';
 
   products.forEach((product) => {
