@@ -89,6 +89,7 @@ export const section = () => {
   divApp.appendChild(sectionFilter);
 
   resetAllFilters(resetButtonFilters);
+  filterEventListener(selectSearchMobile);
 
   document.body.appendChild(divApp);
 };
