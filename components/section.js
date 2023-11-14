@@ -1,4 +1,5 @@
-import { selectSearchMobileEventListener } from '../functions/selecSearchMobileEventListener';
+import { filterEventListener } from '../functions/filterEventListener';
+import { resetAllFilters } from '../functions/resetAllFilters';
 import { products } from './productsArray';
 
 export const section = () => {
@@ -7,8 +8,9 @@ export const section = () => {
   const h2 = document.createElement('h2');
   const logoFilter = document.createElement('img');
   const selectSearchMobile = document.createElement('select');
-  const divSearchFullSize = document.createElement('div');
+  const ulSearchFullSize = document.createElement('ul');
   const inputSearch = document.createElement('input');
+  const buttonSearch = document.createElement('button');
   const resetButtonFilters = document.createElement('button');
 
   const firstOption = document.createElement('option');
@@ -24,33 +26,36 @@ export const section = () => {
     if (!oneNameForLabelOption.has(product.seller)) {
       oneNameForLabelOption.add(product.seller);
       const selectOptions = document.createElement('option');
-      const divCheckBox = document.createElement('div');
-      const input = document.createElement('input');
+      const liCheckBox = document.createElement('li');
+      const inputCheckBox = document.createElement('input');
       const spanNameProduct = document.createElement('span');
       const spanAmountProduct = document.createElement('span');
-
-      selectOptions.className = 'selected_option';
 
       const cantidadElementos = products.filter(
         (item) => item.seller === product.seller
       ).length;
 
-      spanAmountProduct.innerHTML = `(${cantidadElementos})`;
+      selectOptions.className = 'selected_option';
+      inputCheckBox.className = 'checkbox_product ' + product.seller;
+      liCheckBox.className = product.seller;
 
+      spanAmountProduct.innerHTML = `(${cantidadElementos})`;
       selectOptions.innerHTML = product.seller;
       spanNameProduct.innerHTML = product.seller;
 
-      input.type = 'checkbox';
+      inputCheckBox.type = 'checkbox';
+      inputCheckBox.value = product.seller;
 
-      input.className = 'checkbox_product';
       spanNameProduct.className = 'span_name_product';
       spanAmountProduct.className = 'span_amount_product';
 
       selectSearchMobile.appendChild(selectOptions);
-      divCheckBox.appendChild(input);
-      divCheckBox.appendChild(spanNameProduct);
-      divCheckBox.appendChild(spanAmountProduct);
-      divSearchFullSize.appendChild(divCheckBox);
+      liCheckBox.appendChild(inputCheckBox);
+      liCheckBox.appendChild(spanNameProduct);
+      liCheckBox.appendChild(spanAmountProduct);
+      ulSearchFullSize.appendChild(liCheckBox);
+
+      filterEventListener(liCheckBox);
     }
   });
 
@@ -58,8 +63,9 @@ export const section = () => {
   h2.className = 'title_filter';
   logoFilter.className = 'logo_filter';
   selectSearchMobile.className = 'select_mobile';
-  divSearchFullSize.className = 'div_full_size';
+  ulSearchFullSize.className = 'ul_full_size';
   inputSearch.className = 'search';
+  buttonSearch.className = 'search_button';
   resetButtonFilters.className = 'reset_button_filter';
 
   inputSearch.type = 'number';
@@ -67,6 +73,7 @@ export const section = () => {
 
   h2.innerHTML = 'Filtrar';
 
+  buttonSearch.innerHTML = 'BUSCAR';
   resetButtonFilters.innerHTML = 'Resetear Filtros';
 
   logoFilter.alt = 'img_filter';
@@ -74,14 +81,14 @@ export const section = () => {
 
   sectionFilter.appendChild(h2);
   sectionFilter.appendChild(logoFilter);
-  sectionFilter.appendChild(divSearchFullSize);
+  sectionFilter.appendChild(ulSearchFullSize);
   sectionFilter.appendChild(selectSearchMobile);
   sectionFilter.appendChild(inputSearch);
+  sectionFilter.appendChild(buttonSearch);
   sectionFilter.appendChild(resetButtonFilters);
   divApp.appendChild(sectionFilter);
 
-  selectSearchMobileEventListener(selectSearchMobile);
-  selectSearchMobileEventListener(divSearchFullSize);
+  resetAllFilters(resetButtonFilters);
 
   document.body.appendChild(divApp);
 };
