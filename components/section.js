@@ -77,7 +77,7 @@ export const section = (array) => {
   resetButtonFilters.innerHTML = 'Resetear Filtros';
 
   logoFilter.alt = 'img_filter';
-  logoFilter.src = './assets/6488674.png';
+  logoFilter.src = './img/6488674.png';
 
   sectionFilter.appendChild(h2);
   sectionFilter.appendChild(logoFilter);
