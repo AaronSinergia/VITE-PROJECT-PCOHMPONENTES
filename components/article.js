@@ -1,11 +1,12 @@
-import { products } from './productsArray';
+const divApp = document.querySelector('#app');
+const articleHTML = document.createElement('article');
+articleHTML.className = 'products_article';
 
-export const article = () => {
-  const divApp = document.querySelector('#app');
-  const article = document.createElement('article');
-  article.className = 'products_article';
+export const article = (array) => {
+  // console.log(array);
+  articleHTML.innerHTML = ``;
 
-  products.forEach((product) => {
+  array.forEach((product) => {
     const divProduct = document.createElement('div');
     const imgProduct = document.createElement('img');
     const imgTitle = document.createElement('h2');
@@ -33,9 +34,9 @@ export const article = () => {
     divProduct.appendChild(imgPrice);
     divProduct.appendChild(imgStars);
     divProduct.appendChild(imgSeller);
-    article.appendChild(divProduct);
+    articleHTML.appendChild(divProduct);
   });
 
-  divApp.appendChild(article);
-  document.body.appendChild(divApp);
+  const footer = document.querySelector('.footer_div');
+  divApp.insertBefore(articleHTML, footer);
 };

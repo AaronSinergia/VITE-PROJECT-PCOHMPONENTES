@@ -1,16 +1,62 @@
-import { selectedProductBucle } from './productsBucleAndCreate';
+import { article } from '../components/article';
+import { products } from '../components/productsArray';
 
+let arrayForProductsChecked = [];
 export function filterEventListener(element) {
   element.addEventListener('change', (ev) => {
-    const divIMGRemove = document.querySelectorAll('.div_product');
-    divIMGRemove.forEach((div) => {
-      div.remove();
-    });
+    let sellerCheked = ev.target.checked;
+    let sellerSelected = ev.target.value;
+    let arrayForProductsSelected = [];
 
-    if (!ev.target.checked) {
-      location.reload();
+    if (sellerSelected) {
+      if (!arrayForProductsSelected.includes(sellerSelected)) {
+        arrayForProductsSelected.push(sellerSelected);
+      }
+      const arrayFiltered = [];
+      arrayForProductsSelected.forEach((selectedSeller) => {
+        products.forEach((product) => {
+          if (product.seller === selectedSeller) {
+            arrayFiltered.push(product);
+          }
+        });
+      });
+      article(arrayFiltered);
     }
 
-    selectedProductBucle();
+    if (!sellerCheked) {
+      const arrayFilteredQuitCheck = [];
+
+      const valueToRemove = arrayForProductsChecked.indexOf(sellerSelected);
+
+      if (valueToRemove !== -1) {
+        arrayForProductsChecked.splice(valueToRemove, 1);
+      }
+
+      arrayForProductsChecked.forEach((sellerCheked) => {
+        products.forEach((product) => {
+          if (product.seller === sellerCheked) {
+            arrayFilteredQuitCheck.push(product);
+          }
+        });
+      });
+
+      if ((arrayFilteredQuitCheck.length += 0)) {
+        article(arrayFilteredQuitCheck);
+      }
+    } else {
+      if (!arrayForProductsChecked.includes(sellerSelected)) {
+        arrayForProductsChecked.push(sellerSelected);
+      }
+      const arrayFilteredByCheck = [];
+
+      arrayForProductsChecked.forEach((selectedSellerTwo) => {
+        products.forEach((product) => {
+          if (product.seller === selectedSellerTwo) {
+            arrayFilteredByCheck.push(product);
+          }
+        });
+      });
+      article(arrayFilteredByCheck);
+    }
   });
 }

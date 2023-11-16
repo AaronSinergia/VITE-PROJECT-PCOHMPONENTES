@@ -1,15 +1,17 @@
 import { filterEventListener } from '../functions/filterEventListener';
+import { filteredForPrice } from '../functions/filteredForPrice';
 import { resetAllFilters } from '../functions/resetAllFilters';
-import { products } from './productsArray';
 
-export const section = () => {
-  const divApp = document.querySelector('#app');
-  const sectionFilter = document.createElement('section');
+const divApp = document.querySelector('#app');
+const sectionFilter = document.createElement('section');
+sectionFilter.className = 'section_filter section_filter_fullsize';
+
+export const section = (array) => {
   const h2 = document.createElement('h2');
   const logoFilter = document.createElement('img');
   const selectSearchMobile = document.createElement('select');
   const ulSearchFullSize = document.createElement('ul');
-  const inputSearch = document.createElement('input');
+  const inputNumberSearch = document.createElement('input');
   const buttonSearch = document.createElement('button');
   const resetButtonFilters = document.createElement('button');
 
@@ -22,7 +24,7 @@ export const section = () => {
   // LOOP FOR SELECT PRODUCTS MOBILE AND FULLSIZE WEB
   let oneNameForLabelOption = new Set();
 
-  products.forEach((product) => {
+  array.forEach((product) => {
     if (!oneNameForLabelOption.has(product.seller)) {
       oneNameForLabelOption.add(product.seller);
       const selectOptions = document.createElement('option');
@@ -31,7 +33,7 @@ export const section = () => {
       const spanNameProduct = document.createElement('span');
       const spanAmountProduct = document.createElement('span');
 
-      const cantidadElementos = products.filter(
+      const cantidadElementos = array.filter(
         (item) => item.seller === product.seller
       ).length;
 
@@ -59,20 +61,18 @@ export const section = () => {
     }
   });
 
-  sectionFilter.className = 'section_filter section_filter_fullsize';
   h2.className = 'title_filter';
   logoFilter.className = 'logo_filter';
   selectSearchMobile.className = 'select_mobile';
   ulSearchFullSize.className = 'ul_full_size';
-  inputSearch.className = 'search';
+  inputNumberSearch.className = 'search';
   buttonSearch.className = 'search_button';
   resetButtonFilters.className = 'reset_button_filter';
 
-  inputSearch.type = 'number';
-  inputSearch.placeholder = 'Buscar por €';
+  inputNumberSearch.type = 'number';
+  inputNumberSearch.placeholder = 'Buscar por €';
 
   h2.innerHTML = 'Filtrar';
-
   buttonSearch.innerHTML = 'BUSCAR';
   resetButtonFilters.innerHTML = 'Resetear Filtros';
 
@@ -83,12 +83,13 @@ export const section = () => {
   sectionFilter.appendChild(logoFilter);
   sectionFilter.appendChild(ulSearchFullSize);
   sectionFilter.appendChild(selectSearchMobile);
-  sectionFilter.appendChild(inputSearch);
+  sectionFilter.appendChild(inputNumberSearch);
   sectionFilter.appendChild(buttonSearch);
   sectionFilter.appendChild(resetButtonFilters);
   divApp.appendChild(sectionFilter);
 
   resetAllFilters(resetButtonFilters);
+  filteredForPrice(buttonSearch);
   filterEventListener(selectSearchMobile);
 
   document.body.appendChild(divApp);
