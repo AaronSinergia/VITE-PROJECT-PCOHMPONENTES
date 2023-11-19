@@ -20,10 +20,10 @@ export const header = () => {
   imgLogo.alt = 'main_logo';
   logoSellBox.alt = 'sell_logo';
 
-  threeStripes.src = './img/743930_button_512x512.png';
-  imgLogo.src = './img/image.png';
+  threeStripes.src = './assets/743930_button_512x512.png';
+  imgLogo.src = './assets/image.png';
   logoSellBox.src =
-    './img/7ad7c76da9a0cd7d2b01b64b2590617b-icono-de-carrito-de-compras-icono-de-carrito-de-compras.png';
+    './assets/7ad7c76da9a0cd7d2b01b64b2590617b-icono-de-carrito-de-compras-icono-de-carrito-de-compras.png';
 
   h2Compromisos.href = '/';
   h2MiCuenta.href = '/';
