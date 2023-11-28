@@ -1,15 +1,12 @@
-import { article } from '../components/article';
+import { article } from '../pages/article/article';
 import { products } from '../components/productsArray';
 
 let arrayForProductsSelected = [];
-export function filteredForPrice() {
-  const inputNumberSearch = document.querySelector('.search');
-  const searchButton = document.querySelector('.search_button');
 
-  searchButton.addEventListener('click', () => {
-    const inputValue = inputNumberSearch.value;
-    searchButton.dataset.value = inputValue;
-    const value = searchButton.dataset.value;
+export function filteredForPrice(element) {
+  element.addEventListener('click', () => {
+    const inputNumberSearch = document.querySelector('.search');
+    const value = inputNumberSearch.value;
 
     const arrayPrices = products.filter((product) => product.price <= value);
 

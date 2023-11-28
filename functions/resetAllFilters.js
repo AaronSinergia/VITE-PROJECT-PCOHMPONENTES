@@ -1,4 +1,4 @@
-import { article } from '../components/article';
+import { article } from '../pages/article/article';
 import { products } from '../components/productsArray';
 
 export function resetAllFilters(buttonClick) {

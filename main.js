@@ -1,8 +1,8 @@
 import './style.css';
-import { header } from './components/header';
-import { section } from './components/section';
-import { article } from './components/article';
-import { footer } from './components/footer';
+import { header } from './pages/header/header';
+import { section } from './pages/section/section';
+import { article } from './pages/article/article';
+import { footer } from './pages/footer/footer';
 import { products } from './components/productsArray';
 
 const bodyApp = () => {

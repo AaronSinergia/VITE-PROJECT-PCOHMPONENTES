@@ -1,4 +1,4 @@
-import { article } from '../components/article';
+import { article } from '../pages/article/article';
 import { products } from '../components/productsArray';
 
 let arrayForProductsChecked = [];
@@ -48,7 +48,6 @@ export function filterEventListener(element) {
         arrayForProductsChecked.push(sellerSelected);
       }
       const arrayFilteredByCheck = [];
-
       arrayForProductsChecked.forEach((selectedSellerTwo) => {
         products.forEach((product) => {
           if (product.seller === selectedSellerTwo) {

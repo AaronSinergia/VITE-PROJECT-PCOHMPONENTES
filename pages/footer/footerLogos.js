@@ -1,7 +1,4 @@
-export const footer = () => {
-  const divApp = document.querySelector('#app');
-  const footerDiv = document.createElement('div');
-  const footerTitle = document.createElement('h3');
+export const footerLogos = () => {
   const divRRSS = document.createElement('div');
   const githubLogo = document.createElement('img');
   const githubLink = document.createElement('a');
@@ -26,10 +23,6 @@ export const footer = () => {
   linkedinLogo.className = 'linkedin_logo';
   netlifyLogo.className = 'netlify_logo';
   divRRSS.className = 'div_rrss';
-  footerDiv.className = 'footer_div';
-  footerTitle.className = 'footer_title';
-
-  footerTitle.innerHTML = '© Creado por Aaron Carrasco Romero - 2023';
 
   netlifyLink.appendChild(netlifyLogo);
   linkedinLink.appendChild(linkedinLogo);
@@ -37,9 +30,6 @@ export const footer = () => {
   divRRSS.appendChild(netlifyLink);
   divRRSS.appendChild(linkedinLink);
   divRRSS.appendChild(githubLink);
-  footerDiv.appendChild(divRRSS);
-  footerDiv.appendChild(footerTitle);
 
-  divApp.appendChild(footerDiv);
-  document.body.appendChild(divApp);
+  return divRRSS;
 };
