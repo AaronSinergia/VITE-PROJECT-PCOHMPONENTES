@@ -1,12 +1,12 @@
-import { filterEventListener } from '../../functions/filterEventListener';
-
-import { Product } from '../../components/Product/Product';
-
 import { h2Filter } from './h2Filter';
 import { inputNumber } from './inputNumber';
 import { logoFilter } from './logoFilter';
 import { searchButton } from './searchButton';
 import { resetButton } from './resetButton';
+import { ulProductCreate } from '../../components/Product/ulProductCreate';
+
+import { selectFilterEventListener } from '../../functions/selectFilterEventListener';
+import { checkFilterEventListener } from '../../functions/checkFilterEventListener';
 
 const divApp = document.querySelector('#app');
 export const sectionFilter = document.createElement('section');
@@ -25,15 +25,15 @@ export const section = (array) => {
   h2Filter();
   logoFilter();
 
-  // LOOP FOR SELECT PRODUCTS MOBILE AND FULLSIZE WEB
+  // LOOP FOR SELECT PRODUCTS CHECKBOX
   let oneNameForLabelOption = new Set();
 
   array.forEach((product) => {
-    Product(
+    ulProductCreate(
       product,
       oneNameForLabelOption,
       selectSearchMobile,
-      filterEventListener,
+      checkFilterEventListener,
       array
     );
   });
@@ -45,7 +45,7 @@ export const section = (array) => {
 
   divApp.appendChild(sectionFilter);
 
-  filterEventListener(selectSearchMobile);
+  selectFilterEventListener(selectSearchMobile);
 
   document.body.appendChild(divApp);
 };

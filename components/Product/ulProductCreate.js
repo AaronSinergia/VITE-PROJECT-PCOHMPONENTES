@@ -1,10 +1,10 @@
 import { sectionFilter } from '../../pages/section/section';
 
-export const Product = (
+export const ulProductCreate = (
   product,
   oneNameForLabelOption,
   selectSearchMobile,
-  filterEventListener,
+  checkFilterEventListener,
   array
 ) => {
   if (!oneNameForLabelOption.has(product.seller)) {
@@ -44,6 +44,6 @@ export const Product = (
     ulSearchFullSize.appendChild(liCheckBox);
     sectionFilter.appendChild(ulSearchFullSize);
 
-    filterEventListener(liCheckBox);
+    checkFilterEventListener(liCheckBox);
   }
 };
