@@ -9,7 +9,7 @@ export const navBar = () => {
   logoSellBox.className = 'sell_logo';
   logoSellBox.alt = 'sell_logo';
   logoSellBox.src =
-    './../../public/assets/7ad7c76da9a0cd7d2b01b64b2590617b-icono-de-carrito-de-compras-icono-de-carrito-de-compras.png';
+    './assets/7ad7c76da9a0cd7d2b01b64b2590617b-icono-de-carrito-de-compras-icono-de-carrito-de-compras.png';
 
   h2Compromisos.href = '/';
   h2MiCuenta.href = '/';
