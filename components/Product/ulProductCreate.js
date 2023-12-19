@@ -3,15 +3,13 @@ import { sectionFilter } from '../../pages/section/section';
 export const ulProductCreate = (
   product,
   oneNameForLabelOption,
+  ulSearchFullSize,
   selectSearchMobile,
-  checkFilterEventListener,
+  selectFilterEventListener,
   array
 ) => {
   if (!oneNameForLabelOption.has(product.seller)) {
     oneNameForLabelOption.add(product.seller);
-
-    const ulSearchFullSize = document.createElement('ul');
-    ulSearchFullSize.className = 'ul_full_size';
 
     const selectOptions = document.createElement('option');
     const liCheckBox = document.createElement('li');
@@ -44,6 +42,6 @@ export const ulProductCreate = (
     ulSearchFullSize.appendChild(liCheckBox);
     sectionFilter.appendChild(ulSearchFullSize);
 
-    checkFilterEventListener(liCheckBox);
+    selectFilterEventListener(liCheckBox);
   }
 };

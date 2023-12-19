@@ -3,9 +3,7 @@ const articleHTML = document.createElement('article');
 articleHTML.className = 'products_article';
 
 export const article = (array) => {
-  // console.log(array);
   articleHTML.innerHTML = ``;
-
   array.forEach((product) => {
     const divProduct = document.createElement('div');
     const imgProduct = document.createElement('img');

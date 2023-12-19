@@ -6,8 +6,12 @@ export function filteredForPrice(element) {
     const inputNumberSearch = document.querySelector('.search');
     const value = inputNumberSearch.value;
 
+    // const arrayPrices = productsFiltered.filter(
+    //   (product) => product.price <= value || product.price == value
+    // );
+
     const arrayPrices = productsFiltered.filter(
-      (product) => product.price <= value || product.price == value
+      (product) => product.price <= value
     );
 
     setProductsFiltered(arrayPrices);

@@ -13,8 +13,8 @@ export const setProductsFiltered = (newProducts) => {
 
 const bodyApp = () => {
   header();
-  section(productsFiltered);
-  article(productsFiltered);
+  section(products);
+  article(products);
   footer();
 };
 

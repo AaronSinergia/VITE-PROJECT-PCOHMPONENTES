@@ -6,13 +6,16 @@ import { resetButton } from './resetButton';
 import { ulProductCreate } from '../../components/Product/ulProductCreate';
 
 import { selectFilterEventListener } from '../../functions/selectFilterEventListener';
-import { checkFilterEventListener } from '../../functions/checkFilterEventListener';
+// import { checkFilterEventListener } from '../../functions/checkFilterEventListener';
 
 const divApp = document.querySelector('#app');
 export const sectionFilter = document.createElement('section');
 sectionFilter.className = 'section_filter section_filter_fullsize';
 
 export const section = (array) => {
+  h2Filter();
+  logoFilter();
+
   const selectSearchMobile = document.createElement('select');
   selectSearchMobile.className = 'select_mobile';
 
@@ -22,8 +25,8 @@ export const section = (array) => {
   firstOption.selected = true;
   selectSearchMobile.appendChild(firstOption);
 
-  h2Filter();
-  logoFilter();
+  const ulSearchFullSize = document.createElement('ul');
+  ulSearchFullSize.className = 'ul_full_size';
 
   // LOOP FOR SELECT PRODUCTS CHECKBOX
   let oneNameForLabelOption = new Set();
@@ -32,19 +35,22 @@ export const section = (array) => {
     ulProductCreate(
       product,
       oneNameForLabelOption,
+      ulSearchFullSize,
       selectSearchMobile,
-      checkFilterEventListener,
+      selectFilterEventListener,
       array
     );
   });
 
   sectionFilter.appendChild(selectSearchMobile);
+
   inputNumber();
   searchButton();
   resetButton();
 
   divApp.appendChild(sectionFilter);
 
+  // checkFilterEventListener(ulSearchFullSize);
   selectFilterEventListener(selectSearchMobile);
 
   document.body.appendChild(divApp);
