@@ -1,12 +1,12 @@
 import { article } from '../pages/article/article';
 import { products } from '../utils/productsArray';
-import { setProductsFiltered } from '../main';
+// import { setProductsFiltered } from '../main';
 
 export function resetAllFilters(buttonClick) {
   buttonClick.addEventListener('click', (ev) => {
     const evTargeted = ev.target;
     if (evTargeted) {
-      setProductsFiltered(products);
+      // setProductsFiltered(products);
       article(products);
 
       const inputCheckbox = document.getElementsByClassName('checkbox_product');

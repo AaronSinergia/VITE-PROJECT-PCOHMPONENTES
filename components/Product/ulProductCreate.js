@@ -1,3 +1,4 @@
+import { allFiltersUnited } from '../../functions/allFiltersUnited';
 import { sectionFilter } from '../../pages/section/section';
 
 export const ulProductCreate = (
