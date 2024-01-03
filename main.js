@@ -87,11 +87,11 @@ const section = () => {
   const selectSearchMobile = document.createElement('select');
   selectSearchMobile.className = 'select_mobile';
 
-  const firstOption = document.createElement('option');
-  firstOption.innerHTML = 'MARCAS';
-  firstOption.disabled = true;
-  firstOption.selected = true;
-  selectSearchMobile.appendChild(firstOption);
+  // const firstOption = document.createElement('option');
+  // firstOption.innerHTML = 'MARCAS';
+  // firstOption.disabled = true;
+  // firstOption.selected = true;
+  // selectSearchMobile.appendChild(firstOption);
 
   let oneNameForLabelOption = new Set();
   products.forEach((product) => {
@@ -103,61 +103,48 @@ const section = () => {
     }
   });
 
-  let ulCreated = false;
-  window.addEventListener('resize', () => changeToCheckBox(products));
+  const ulSearchFullSize = document.createElement('ul');
+  ulSearchFullSize.className = 'ul_full_size';
+  let arrayWithNoRepeatedSellers = [];
 
-  function changeToCheckBox(productos) {
-    const windowWidth = window.innerWidth;
-    const minWindowWidth = 1221;
-
-    if (windowWidth > minWindowWidth && !ulCreated) {
-      const ulSearchFullSize = document.createElement('ul');
-      ulSearchFullSize.className = 'ul_full_size';
-
-      let arrayWithNoRepeatedSellers = [];
-      for (const product of productos) {
-        if (!arrayWithNoRepeatedSellers.includes(product)) {
-          arrayWithNoRepeatedSellers.includes(product);
-
-          const li = document.createElement('li');
-          li.className = product.seller;
-
-          const inputCheckBox = document.createElement('input');
-          inputCheckBox.className = 'checkbox_product ' + product.seller;
-          inputCheckBox.type = 'checkbox';
-          inputCheckBox.value = product.seller;
-
-          const spanNameProduct = document.createElement('span');
-          spanNameProduct.innerHTML = product.seller;
-          spanNameProduct.className = 'span_name_product';
-
-          const cantidadElementos = productos.filter(
-            (item) => item.seller === product.seller
-          ).length;
-          const spanAmountProduct = document.createElement('span');
-          spanAmountProduct.innerHTML = `(${cantidadElementos})`;
-          spanAmountProduct.className = 'span_amount_product';
-
-          li.appendChild(inputCheckBox);
-          li.appendChild(spanNameProduct);
-          li.appendChild(spanAmountProduct);
-          ulSearchFullSize.appendChild(li);
-        }
-      }
-      sectionFilter.insertBefore(ulSearchFullSize, inputNumberSearch);
-      ulCreated = true;
+  for (const product of products) {
+    if (!arrayWithNoRepeatedSellers.includes(product.seller)) {
+      arrayWithNoRepeatedSellers.push(product.seller);
+      const li = document.createElement('li');
+      li.className = product.seller;
+      const inputCheckBox = document.createElement('input');
+      inputCheckBox.className = 'checkbox_product ' + product.seller;
+      inputCheckBox.type = 'checkbox';
+      inputCheckBox.value = product.seller;
+      const spanNameProduct = document.createElement('span');
+      spanNameProduct.innerHTML = product.seller;
+      spanNameProduct.className = 'span_name_product';
+      const cantidadElementos = products.filter(
+        (item) => item.seller === product.seller
+      ).length;
+      const spanAmountProduct = document.createElement('span');
+      spanAmountProduct.innerHTML = `(${cantidadElementos})`;
+      spanAmountProduct.className = 'span_amount_product';
+      li.appendChild(inputCheckBox);
+      li.appendChild(spanNameProduct);
+      li.appendChild(spanAmountProduct);
+      ulSearchFullSize.appendChild(li);
     }
   }
+
+  ulSearchFullSize.addEventListener('click', (ev) => {
+    ulCheckedListFilter(products, ev);
+  });
 
   selectSearchMobile.addEventListener('change', () => itemFilter(products));
   buttonSearch.addEventListener('click', () => itemFilter(products));
 
   function itemFilter(productos) {
     const optionClicked = document.querySelector('.select_mobile');
-    const eventSelect = optionClicked.value;
+    let eventSelect = optionClicked.value;
 
     const inputSearched = document.querySelector('.search');
-    const eventInput = inputSearched.value;
+    let eventInput = inputSearched.value;
 
     const article = document.querySelector('.products_article');
     article.innerHTML = ``;
@@ -209,9 +196,64 @@ const section = () => {
     });
   }
 
+  function ulCheckedListFilter(productos, ev) {
+    const liClicked = ev.target.value;
+
+    const inputSearched = document.querySelector('.search');
+    const eventInput = inputSearched.value;
+
+    const article = document.querySelector('.products_article');
+    article.innerHTML = ``;
+
+    let filtersUnited = [];
+
+    for (const product of productos) {
+      const liFiltered = liClicked ? product.seller.includes(liClicked) : true;
+
+      const priceFiltered =
+        eventInput !== '' ? parseFloat(eventInput) >= product.price : true;
+
+      if (liFiltered && priceFiltered) {
+        filtersUnited.push(product);
+      }
+    }
+
+    filtersUnited.forEach((product) => {
+      const divProduct = document.createElement('div');
+      const imgProduct = document.createElement('img');
+      const imgTitle = document.createElement('h2');
+      const imgPrice = document.createElement('h2');
+      const imgStars = document.createElement('h2');
+      const imgSeller = document.createElement('h2');
+
+      divProduct.className = 'div_product';
+      imgProduct.className = 'img_product';
+      imgTitle.className = 'img_title';
+      imgPrice.className = 'img_price';
+      imgStars.className = 'img_stars';
+      imgSeller.className = 'img_seller';
+
+      imgProduct.alt = product.name;
+      imgProduct.src = product.image;
+
+      imgTitle.innerHTML = product.name;
+      imgPrice.innerHTML = product.price + '€';
+      imgStars.innerHTML = 'Opinión: ' + product.stars.join('');
+      imgSeller.innerHTML = 'Vendido por: ' + product.seller;
+
+      divProduct.appendChild(imgProduct);
+      divProduct.appendChild(imgTitle);
+      divProduct.appendChild(imgPrice);
+      divProduct.appendChild(imgStars);
+      divProduct.appendChild(imgSeller);
+      article.appendChild(divProduct);
+    });
+  }
+
   sectionFilter.appendChild(h2);
   sectionFilter.appendChild(logoFilter);
   sectionFilter.appendChild(selectSearchMobile);
+  sectionFilter.appendChild(ulSearchFullSize);
   sectionFilter.appendChild(inputNumberSearch);
   sectionFilter.appendChild(buttonSearch);
   sectionFilter.appendChild(resetButtonFilters);
