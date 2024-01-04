@@ -3,14 +3,6 @@ import { article } from './pages/ARTICLE/article';
 import { section } from './pages/SECTION/section';
 import { footer } from './pages/FOOTER/footer';
 
-header();
-
-article();
-
-section();
-
-footer();
-
 const bodyApp = () => {
   const divApp = document.querySelector('#app');
   const printHeader = header();
